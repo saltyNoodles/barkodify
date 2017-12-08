@@ -214,7 +214,7 @@ babel-code-frame@^6.16.0, babel-code-frame@^6.26.0, babel-code-frame@^6.8.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@6.14.0, babel-core@^6.14.0, babel-core@^6.26.0:
+babel-core@6.14.0, babel-core@^6.14.0:
   version "6.14.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.14.0.tgz#c9e13ed4e2f97329215496fd9fb48f2b3bcb9b42"
   dependencies:
@@ -239,6 +239,30 @@ babel-core@6.14.0, babel-core@^6.14.0, babel-core@^6.26.0:
     shebang-regex "^1.0.0"
     slash "^1.0.0"
     source-map "^0.5.0"
+
+babel-core@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.0.tgz#af32f78b31a6fcef119c87b0fd8d9753f03a0bb8"
+  dependencies:
+    babel-code-frame "^6.26.0"
+    babel-generator "^6.26.0"
+    babel-helpers "^6.24.1"
+    babel-messages "^6.23.0"
+    babel-register "^6.26.0"
+    babel-runtime "^6.26.0"
+    babel-template "^6.26.0"
+    babel-traverse "^6.26.0"
+    babel-types "^6.26.0"
+    babylon "^6.18.0"
+    convert-source-map "^1.5.0"
+    debug "^2.6.8"
+    json5 "^0.5.1"
+    lodash "^4.17.4"
+    minimatch "^3.0.4"
+    path-is-absolute "^1.0.1"
+    private "^0.1.7"
+    slash "^1.0.0"
+    source-map "^0.5.6"
 
 babel-generator@^6.14.0, babel-generator@^6.26.0:
   version "6.26.0"
@@ -1583,6 +1607,10 @@ js-yaml@^3.5.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+jsbarcode@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/jsbarcode/-/jsbarcode-3.8.0.tgz#a290379a7449fb927f26d26b319c24bf2debc8fc"
 
 jsbn@~0.1.0:
   version "0.1.1"
