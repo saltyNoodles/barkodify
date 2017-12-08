@@ -6,10 +6,16 @@ class Barcode extends React.Component {
     super(props);
 
     this.generateBarcode = this.generateBarcode.bind(this);
+    this.getDataURL = this.getDataURL.bind(this);
   }
 
   componentDidMount() {
     this.generateBarcode(this.props.initialValue);
+  }
+
+  getDataURL() {
+    let img = document.querySelector('#barcode');
+    console.log(img.src);
   }
 
   generateBarcode(text) {
@@ -28,7 +34,8 @@ class Barcode extends React.Component {
   render() {
     return (
       <div>
-        <svg id="barcode" />
+        <img id="barcode" />
+        <button onClick={this.getDataURL}>share</button>
       </div>
     );
   }
