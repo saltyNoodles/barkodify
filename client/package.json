@@ -8,6 +8,7 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "jsbarcode": "^3.8.0",
     "react": "15.4.0",
     "react-dom": "15.4.0"
   },
