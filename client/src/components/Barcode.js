@@ -2,9 +2,10 @@ import React from 'react';
 import JsBarcode from 'jsbarcode';
 
 const imgStyle = {
-  maxWidth: '100%',
+  maxWidth: '90%',
+  left: 0,
   marginBottom: '10px',
-  marginTop: '80px'
+  margin: '30px'
 }
 class Barcode extends React.Component {
   constructor(props) {
@@ -21,15 +22,17 @@ class Barcode extends React.Component {
   }
 
   getDataURL() {
-    let img = document.querySelector('#barcode');
-    return img.src;
+    let canvas = document.querySelector('#barcode');
+    return canvas.toDataURL("image/png");
   }
 
   generateBarcode(text, callback) {
     if (text) {
       JsBarcode('#barcode', text); 
     } else {
-      JsBarcode('#barcode', this.props.initialValue);
+      JsBarcode('#barcode', this.props.initialValue, {
+        background: null
+      });
     }
 
     if (callback) callback(this.getDataURL());
@@ -44,7 +47,7 @@ class Barcode extends React.Component {
   render() {
     return (
       <div>
-        <img style={imgStyle} id="barcode" alt={this.props.value} />
+        <canvas style={imgStyle} id="barcode" alt={this.props.value} />
       </div>
     );
   }

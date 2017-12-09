@@ -6,11 +6,6 @@ import ShareButton from './ShareButton';
 
 import logo from '../logo.png';
 
-let appStyle = {
-  fontFamily: 'sans-serif',
-  fontSize: '18pt'
-}
-
 let inputStyle = {
   padding: '10px',
   marginTop: '30px',
@@ -40,12 +35,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container text style={appStyle}>
+      <Container text>
         <center>
           <h1><img src={logo} height="64" role="presentation" />Barkodify</h1>
           <Barcode value={this.state.inputValue} initialValue="wow. such bar. very code." onChange={this.handleBarcodeChange} />
           <div><ShareButton site="facebook" dataUrl={this.state.dataUrl} /></div>
-          <Input style={inputStyle} placeholder="wow. such bar. very code." value={this.state.inputValue} onChange={this.handleInputChange} />
+          <Input className="text-input" style={inputStyle} placeholder="wow. such bar. very code." value={this.state.inputValue} onChange={this.handleInputChange} />
         </center>
       </Container>
     );

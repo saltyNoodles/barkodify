@@ -1,0 +1,8 @@
+body {
+  /* space to breathe */
+  padding-top: 20px;
+}
+.text-input input {
+  /* override semantic input color for .text-input */
+  border: 1px solid black !important;
+}

@@ -2,10 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import { Button, Modal } from 'semantic-ui-react';
 
+import ShareModal from './ShareModal';
+
 class ShareButton extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      sharableURL: null
+    }
     this.share = this.share.bind(this);
     this.getSharableUrl = this.getSharableUrl.bind(this);
   }
@@ -13,9 +17,8 @@ class ShareButton extends React.Component {
   share() {
     this.getSharableUrl(this.props.dataUrl, (e, res) => {
       if (e) return console.log(e);
-      console.log('saved to', res.data.url );
+      this.setState({ sharableURL: res.data.url });
     });
-
   }
 
   getSharableUrl(dataUrl = this.props.dataUrl, callback) {
@@ -27,10 +30,14 @@ class ShareButton extends React.Component {
   }
 
   render() {
-    return (
-      <span>
+    let shareTrigger = (
         <Button secondary className={`share-button`} onClick={() => this.share()}>Share this barcode!</Button>
-      </span>
+    );
+    return (
+      <ShareModal
+        trigger={shareTrigger}
+        url={this.state.sharableURL}
+      />
     );
   }
 }
