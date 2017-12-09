@@ -27,7 +27,7 @@ app.post('/save/', (req, res) => {
       return res.status(400).send('error saving file:' + error);
     }
 
-    res.status(201).send('Image created as ' + file);
+    res.status(201).send({filename: file, url: '/user-img/' + file});
   })
 });
 
