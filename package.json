@@ -5,7 +5,9 @@
   "dependencies": {
     "babel-cli": "6.14.0",
     "babel-core": "6.14.0",
+    "body-parser": "^1.18.2",
     "express": "4.13.3",
+    "image-data-uri": "^1.0.1",
     "jsbarcode": "^3.8.0"
   },
   "scripts": {
