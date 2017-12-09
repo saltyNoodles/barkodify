@@ -1,6 +1,8 @@
 import React from 'react';
+import { Container, Input } from 'semantic-ui-react'
 
 import Barcode from './Barcode';
+import ShareButton from './ShareButton';
 
 import logo from '../logo.png';
 
@@ -10,8 +12,9 @@ let appStyle = {
 }
 
 let inputStyle = {
-  width: '750px',
-  padding: '10px'
+  padding: '10px',
+  marginTop: '30px',
+  width: '100%'
 }
 
 class App extends React.Component {
@@ -19,25 +22,32 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      inputValue: ''
+      inputValue: '',
+      dataUrl: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleBarcodeChange = this.handleBarcodeChange.bind(this);
   }
 
   handleInputChange(e) {
-    this.setState({inputValue: e.target.value});
+    this.setState({ inputValue: e.target.value });
+  }
+
+  handleBarcodeChange(dataUrl) {
+    if (dataUrl !== this.state.dataUrl) this.setState({ dataUrl });
   }
 
   render() {
     return (
-      <div style={appStyle}>
+      <Container text style={appStyle}>
         <center>
           <h1><img src={logo} height="64" role="presentation" />Barkodify</h1>
-          <Barcode value={this.state.inputValue} initialValue="wow. such bar. very code." />
-          <input style={inputStyle} placeholder="wow. such bar. very code." value={this.state.inputValue} onChange={this.handleInputChange} />
+          <Barcode value={this.state.inputValue} initialValue="wow. such bar. very code." onChange={this.handleBarcodeChange} />
+          <div><ShareButton site="facebook" dataUrl={this.state.dataUrl} /></div>
+          <Input style={inputStyle} placeholder="wow. such bar. very code." value={this.state.inputValue} onChange={this.handleInputChange} />
         </center>
-      </div>
+      </Container>
     );
   }
 }
