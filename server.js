@@ -31,4 +31,4 @@ app.post('/save/', (req, res) => {
   })
 });
 
-app.listen(app.get('port'));
+app.listen(app.get('port'), () => console.log('listening on port', app.get('port')));
