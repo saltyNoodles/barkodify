@@ -9,16 +9,17 @@ const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const generateFilename = (timesRun = 0) => {
+const generateFilename = (timesRun = 0, base='barcode') => {
   timesRun++;
-  let filename = `barcode-${randomInteger(1, 100000)}-${Date.now()}.bc.png`;
+  let filename = `${base}-${randomInteger(1, 100000)}-${Date.now()}.bc.png`;
 
   // check if file exists
   if(fileExists(imageHandler.dir + filename)) {
     if (timesRun >= 10) {
-      return console.log('couldn\'t create file'); 
+      // The chances of this happening are incredibly slim, but I may as well account for it. 
+      return generateFilename(0, base=base + '-1');
     }
-    return generateFilename();
+    return generateFilename(timesRun);
   } else {
     return filename;
   }
